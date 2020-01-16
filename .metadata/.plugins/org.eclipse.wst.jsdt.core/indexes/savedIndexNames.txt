@@ -1,11 +1,10 @@
-INDEX VERSION 1.4+C:\Users\student\TIL\Web\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+INDEX VERSION 1.4+C:\Users\student\Web_study\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
 737422156.index
-76321743.index
-3775574633.index
+2989952615.index
+4181646993.index
+2831141068.index
 3002956534.index
-1645081168.index
-869272274.index
-2126470379.index
-1201681970.index
 893728577.index
+593226089.index
 3343237744.index
+2126470379.index
