@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	
+	<title> </title>
+	<script type="text/javascript">
+		var httpRequest = null;
+		function sendRequest(){
+			
+			
+			if(window.XMLHttpRequest){
+				httpRequest = new XMLHttpRequest();
+			}
+			
+			httpRequest.onreadystatechange = responseMsg;
+			
+			httpRequest.open("GET","hello.html",true);
+			httpRequest.send();
+			
+			function responseMsg(){
+				
+				if(httpRequest.readyState == 4 && httpRequest.status == 200){
+					
+					document.getElementById("main").innerHTML = httpRequset.responseText;
+					
+				}
+				
+			}
+			
+		}
+		
+		
+		
+	</script>
+</head>
+<body>
+<div id="main"></div>
+<button id="ajax" onclick="sendRequest();">CLICK</button>
+</body>
+</html>

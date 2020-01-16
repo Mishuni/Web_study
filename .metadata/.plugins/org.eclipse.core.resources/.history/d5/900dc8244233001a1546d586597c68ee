@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	
+	<title> </title>
+	
+	<script type="text/javascript">
+	function myNum(){
+		
+		var x = 100;
+		var y = 200;
+		var z = "30"; // string
+		
+		var su = eval("x+y") + "<br>";
+		
+		document.getElementById("demo").innerHTML = su;
+		alert();
+	}
+	
+	</script>
+</head>
+<body>
+	<button onclick="myNum()">눌러봐</button>
+	<p id="demo"></p>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<link rel="stylesheet" href="./style.css" />
+	<title>JavaScript Test</title>
+	<script type="text/javascript">
+	
+	document.write("javascript를 이용한 출력<br>");
+	document.write("javascript 대소문자 구분한다.<br>");
+	document.writeln("<font color='red' size='5'>javascript를 이용한 출력</font>");
+	
+	
+	</script>
+</head>
+<body>
+	<p>브라우저 출력</p>
+
+</body>
+</html>
