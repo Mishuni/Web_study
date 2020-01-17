@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+<title></title>
+
+<script type="text/javascript">
+	var req = null
+	function getXMLHttpRequest() {
+		
+		if(window.XMLHttpRequest){
+			return new XMLHttpRequest();
+		}
+		else if(window.ActiveXObject){
+			return new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		else{
+			return null;
+		}
+		
+	}
+	
+	function clearOnClick() {
+		
+		var debug = document.getElementById("debug");
+		debug.value= "";
+		
+	}
+	
+	function sendProcess(method, params){
+		
+		var msg = "";
+		msg += "--------------------------\n";
+		var url = "param.jsp?name="+params;
+		msg += url + "\n";
+		debugTrace(msg);
+		
+		var args = "name="+encodeURIComponent(params);
+		var url = "param2.jsp";
+		
+		req = getXMLHttpRequest();
+		req.onreadystatechange = callbackFunction;
+		if(method=="Get"){
+			req.open(method, url+'?'+args,true);
+			req.send(null);
+		}
+		else if(method == "Post"){
+			req.open(method, url, true);
+			req.setRequestHeader("Content-Type","application/www-form-urlencoded");
+			req.send(args);
+		}
+	}
+	
+	function callbackFunction(){
+		
+		var msg = "";
+		switch(req.readyState){
+		
+		case 1:
+			msg += "Loading...\n";
+			break;
+		case 2:
+			msg += "Loaded...\n";
+			break;
+		case 3:
+			msg += "Interative...\n";
+			break;
+		case 4:
+			msg += "Completed...\n";
+			
+			if(req.status == 200){
+				msg+="complete\n";
+				msg+="result: "+req.responseText + "\n";
+			}else{
+				msg += "웹서버에서 에러가 발생\n";
+			}
+			msg += "---------------------------------------\n"
+			break;
+		}
+		debugTrace(msg);
+	}
+	
+	function debugTrace(msg){
+		var debug = document.getElementById("debug");
+		debug.value += msg;
+	}
+
+	
+</script>
+</head>
+<body>
+	<textarea rows="10" cols="80" id="debug" name="debug"></textarea><br>
+	<input type = "button" value="Get English param call" onclick="sendProcess('Get','hong')"/>
+	<input type = "button" value="Get Korean param call" onclick="sendProcess('Get','홍')"/>
+	<input type = "button" value="Post English param call" onclick="sendProcess('Post','hong')"/>
+	<input type = "button" value="Post Korean param call" onclick="sendProcess('Post','홍')"/>
+	<input type = "button" value="reset" onclick="clearOnClick()"/>
+</body>
+</html>

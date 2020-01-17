@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	
+	<title> </title>
+</head>
+<body>
+	<p>the number of visiting : <span id="count"> </span></p>
+	<script>
+		if(!localStorage.pageLoadCount)
+			localStorage.pageLoadCount = 1;
+		else
+			localStorage.pageLoadCount= parseInt(localStorage.pageLoadCount) + 1;
+		
+		document.getElementById("count").textContent = localStorage.pageLoadCount;
+	
+	</script>
+</body>
+</html>

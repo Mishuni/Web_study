@@ -192,7 +192,7 @@ Tomcat을 실행하면
 </html>
 ```
 
-
+자바프로젝트 > 오른쪽 마우스 클릭 > java EE tools > generate Deployment Descriptor Stub 선택 > WEB-INF 폴더에 web.xml 파일 생성
 
 ----
 

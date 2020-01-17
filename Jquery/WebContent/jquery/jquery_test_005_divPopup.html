@@ -41,6 +41,7 @@
 						word = $.trim(word);
 						// class="word변수저장문자열" 가지고 있는 div 태그를 보이게하기
 						$(".tip").filter("."+word).show();
+						$("#"+word)
 						// 마우스를 갖다댄 곳의 x좌표, y좌표를 구하여 div태그의 위치로 정하자
 						var x = event.clientX+10;
 						var y = event.clientY+10;
