@@ -27,6 +27,10 @@ public class loginServlet extends HttpServlet {
 		System.out.println(id);
 		pw.write("<html><head><title>print</title></head></html>");
 		pw.write("<body>");
+		if(id==null) {
+			pw.write("틀린 정보 입니다.");
+			pw.write("<br><a href='"+request.getRequestURI()+"'"+" style='border:1px solid gray;'>Login</a>");
+		}else {
 		if(!id.equals(user)) {
 			pw.write("틀린 정보 입니다.");
 			pw.write("<br><a href='html/loginForm.html' style='border:1px solid gray;'>Login</a>");
@@ -41,7 +45,7 @@ public class loginServlet extends HttpServlet {
 				pw.write("틀린 정보 입니다.");
 				pw.write("<br><a href='html/loginForm.html' style='border:1px solid gray;'>Login</a>");
 			}
-		}
+		}}
 		pw.write("</body></html>");
 		pw.close();
 		
