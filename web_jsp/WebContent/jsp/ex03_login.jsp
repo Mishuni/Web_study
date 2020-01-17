@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +41,7 @@
 </head>
 <body>
 <h1>Login</h1><hr><br>
-	<form action="../loginServlet" method="get">
+	<form action="ex03_loginOK.jsp" method="get">
 	<b>ID</b> :<input type ="text" name="id">
 	<br>
 	<b>Pwd</b>:<input type="password" name="pwd"><br>

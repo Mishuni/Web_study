@@ -76,6 +76,26 @@
 
 servlet 내부 객체 : vrequest, response, out, pageContext, session, application, config, page, exception
 
+
+
+ **moder1 방식 :**
+
+- HTML 파일에 java 코드(<%)가 섞여 있는 방식
+
+**model2 방식(MVC 형태) :**
+
+- 이런 java코드는 selvlet으로 보내 놓는 방식
+- java 코드는 매번 compile 되어야 해서 불편하니까 servlet으로 넘겨 놓는 것이 좋다.
+- model2 (= MVC)
+
 ## 3. Jstl : 
 
 - Java, jsp, servlet : tag, sql 문은 문자열 취급
+
+https://mvnrepository.com/artifact/javax.servlet/jstl/1.2
+
+https://mvnrepository.com/artifact/taglibs/standard/1.1.2
+
+-> 두 링크에서 jar 파일 다운 받고
+
+-> eclipse에서 WebContent>WEB-INF>lib 폴더에 두 jar 파일 넣기
