@@ -194,6 +194,20 @@ Tomcat을 실행하면
 
 자바프로젝트 > 오른쪽 마우스 클릭 > java EE tools > generate Deployment Descriptor Stub 선택 > WEB-INF 폴더에 web.xml 파일 생성
 
+
+
+Server에 올라간 파일들
+
+webcontents : C:\Users\student\Web_study\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps
+
+java class : C:\Users\student\Web_study\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\work\Catalina\localhost\web_jstl_el\org\apache\jsp\el
+
+###  Spring
+
+[Spring home](https://spring.io/)
+
+[Download](https://spring.io/tools) > Spring Tools 4 for Eclipse
+
 ----
 
 #### 알아두면 유용한 사이트

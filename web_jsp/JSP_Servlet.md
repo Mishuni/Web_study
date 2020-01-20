@@ -66,7 +66,7 @@
 
   
 
-   (2) 이노테이션 등록 :
+   (2) 어노테이션 등록 :
   
   * class 이름 위에 annotation 등록
   
@@ -99,3 +99,89 @@ https://mvnrepository.com/artifact/taglibs/standard/1.1.2
 -> 두 링크에서 jar 파일 다운 받고
 
 -> eclipse에서 WebContent>WEB-INF>lib 폴더에 두 jar 파일 넣기
+
+### 4. DBCP & POOL & JNDI 커넥션 풀
+
+> JDBC 를 효율적으로 사용하는 법
+
+1) http://commons.apache.org/   에서 다운 받기
+
+http://commons.apache.org/proper/commons-dbcp/
+
+-> Downloads -> [commons-dbcp2-2.7.0-bin.zip](http://apache.tt.co.kr//commons/dbcp/binaries/commons-dbcp2-2.7.0-bin.zip) 
+
+http://commons.apache.org/proper/commons-pool/
+
+->Downloads -> [commons-pool2-2.8.0-bin.zip](http://mirror.apache-kr.org//commons/pool/binaries/commons-pool2-2.8.0-bin.zip)
+
+2) Tomcat server 에서 제공하는 것 쓰기
+
+C:\APP\apache-tomcat-8.5.50\lib > tomcat-dbcp.jar 가져오기
+
+
+
+규칙: https://tomcat.apache.org/tomcat-8.5-doc/jndi-resources-howto.html#JDBC_Data_Sources
+
+1) web.xml
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <display-name>web06_jstl_el</display-name>
+  
+  <!-- jdbc:dbcpTestDB  DBCP setting -->
+  <resource-ref>
+  		<description>jdbc:dbcpTestDB  DBCP setting</description>
+  		<res-ref-name>jdbc:dbcpTestDB</res-ref-name>
+  		<res-type>javax.sql.DataSource</res-type>
+  		<res-auth>Container</res-auth>
+  </resource-ref>
+  
+  
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
+```
+
+
+
+2)context.xml 
+
+원래는 Servers 폴더 안에 있다.
+
+-> 여기를 손 대면 모든 프로젝트가 영향을 받으니까, 일단 각 프로젝트 META_INF 폴더 안에  만들어서 사용 
+
+META_INF 폴더 > XML 파일 > context.xml 파일 생성
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context reloadable = "true">
+
+	<WatchedResource>WEB-INF/web.xml</WatchedResource>
+	<Resource
+		name = "jdbc:dbcpTestDB"
+		auth="Container"
+		type="javax.sql.DataSource"
+		username="kingsmile"
+		password="oracle"
+		driverClassName="oracle.jdbc.OracleDriver"
+		url = "jdbc:oracle:thin:@localhost:1521:xe"
+
+		maxActive ="20"
+		maxIdle = "10"
+		maxWait = "-1"
+		
+	       />
+	       
+	 <!-- maxActive : DB 연결 객체 최대 갯수 (default : 8) -->
+
+</Context>
+```
+
